@@ -22,6 +22,12 @@ repositories {
 	mavenCentral()
 }
 
+bootJar{
+	archivesBaseName = 'application'
+	archiveFileName = 'application.jar'
+	archiveVersion = "0.0.0"
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.boot:spring-boot-starter-web'

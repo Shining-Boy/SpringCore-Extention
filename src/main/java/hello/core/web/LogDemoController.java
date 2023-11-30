@@ -28,6 +28,6 @@ public class LogDemoController {
 
         myLogger.log("controller test");
         logdemoService.logic("testId");
-        return "OK!";
+        return "OK!!";
     }
 }

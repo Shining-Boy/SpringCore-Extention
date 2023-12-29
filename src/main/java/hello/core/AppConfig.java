@@ -18,11 +18,11 @@ import hello.core.order.OrderServiceImpl;
 
 @Configuration
 public class AppConfig {
-    private final FoodRepository foodRepository;
+    // private final FoodRepository foodRepository;
 
-    public AppConfig(FoodRepository foodRepository){
-        this.foodRepository = foodRepository;
-    }
+    // public AppConfig(FoodRepository foodRepository){
+    //     this.foodRepository = foodRepository;
+    // }
 
     @Bean
     public
@@ -38,11 +38,11 @@ public class AppConfig {
         return new MemoryMemberRepository();
     }
 
-    @Bean
-    FoodService foodService() {
-        System.out.println("call AppConfig.foodService");
-        return new FoodServiceImpl(foodRepository);
-    }
+    // @Bean
+    // FoodService foodService() {
+    //     System.out.println("call AppConfig.foodService");
+    //     return new FoodServiceImpl(foodRepository);
+    // }
 
     @Bean
     OrderService orderService() {

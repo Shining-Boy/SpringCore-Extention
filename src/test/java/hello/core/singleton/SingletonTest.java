@@ -13,16 +13,12 @@ public class SingletonTest {
     @Test
     @DisplayName("스프링 없는 순수한 DI 컨테이너")
     void pureContainer() {
-        // AppConfig appConfig = new AppConfig();
+        AppConfig appConfig = new AppConfig();
         // 1. 조회 : 호출할 때마다 객체를 생성
-        // MemberService memberService1 = appConfig.memberService();
+        MemberService memberService1 = appConfig.memberService();
 
         // 2. 조회 : 호출할 때마다 객체를 생성
-        // MemberService memberService2 = appConfig.memberService();
-
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
-        MemberService memberService1 = applicationContext.getBean("memberService", MemberService.class);
-        MemberService memberService2 = applicationContext.getBean("memberService", MemberService.class);
+        MemberService memberService2 = appConfig.memberService();
 
         // 참조값이 다른 것을 확인
         System.out.println("memberService1 = " + memberService1);

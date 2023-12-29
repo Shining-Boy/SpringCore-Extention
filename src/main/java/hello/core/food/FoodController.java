@@ -20,7 +20,7 @@ public class FoodController {
 
     @GetMapping(value = "/foods/new")
     public String createForm() {
-        return "foods/createFoodForm";
+        return "foods/createFoodForm"; 
     }
     
     @PostMapping(value = "/foods/new")

@@ -6,6 +6,9 @@ import org.springframework.context.annotation.Configuration;
 import hello.core.discount.DiscountPolicy;
 import hello.core.discount.FixDiscountPolicy;
 import hello.core.discount.RateDiscountPolicy;
+import hello.core.food.FoodRepository;
+import hello.core.food.FoodService;
+import hello.core.food.FoodServiceImpl;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemberService;
 import hello.core.member.MemberServiceImpl;
@@ -15,6 +18,11 @@ import hello.core.order.OrderServiceImpl;
 
 @Configuration
 public class AppConfig {
+    private final FoodRepository foodRepository;
+
+    public AppConfig(FoodRepository foodRepository){
+        this.foodRepository = foodRepository;
+    }
 
     @Bean
     public
@@ -28,6 +36,12 @@ public class AppConfig {
     MemberRepository memberRepository(){
         System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
+    }
+
+    @Bean
+    FoodService foodService() {
+        System.out.println("call AppConfig.foodService");
+        return new FoodServiceImpl(foodRepository);
     }
 
     @Bean
